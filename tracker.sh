@@ -1,31 +1,44 @@
 #!/bin/bash
 
-# ==========================================
-# AWS Resource Monitor & Automation Toolkit
-# Version: 1.0.0
-# Author : Harshith Acharya
-# ==========================================
+while true
+do
+    clear
 
-clear
+    echo "========================================"
+    echo "     AWS RESOURCE MONITOR TOOLKIT"
+    echo "========================================"
+    echo ""
+    echo "1. EC2 Monitor"
+    echo "2. EBS Monitor"
+    echo "3. IAM Monitor"
+    echo "4. Security Group Audit"
+    echo "5. Exit"
+    echo ""
 
-echo "======================================================="
-echo "       AWS RESOURCE MONITOR & AUTOMATION TOOLKIT"
-echo "======================================================="
-echo "Version : 1.0.0"
-echo "Author  : Harshith Acharya"
-echo "======================================================="
-echo ""
+    read -p "Select an option: " choice
 
-echo "[INFO] Checking AWS CLI installation..."
+    case $choice in
+        1)
+            ./modules/ec2.sh
+            ;;
+        2)
+            ./modules/ebs.sh
+            ;;
+        3)
+            ./modules/iam.sh
+            ;;
+        4)
+            ./modules/security.sh
+            ;;
+        5)
+            echo "Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option!"
+            ;;
+    esac
 
-if command -v aws >/dev/null 2>&1
-then
-    echo "[SUCCESS] AWS CLI is installed."
-else
-    echo "[ERROR] AWS CLI is not installed."
-    exit 1
-fi
-
-echo ""
-echo "Press Enter to continue..."
-read
+    echo ""
+    read -p "Press Enter to continue..."
+done
