@@ -1,11 +1,23 @@
 #!/bin/bash
 
-echo "========================================"
-echo "         AWS ACCOUNT SUMMARY"
-echo "========================================"
+source "$(dirname "$0")/utils.sh"
+
+if ! command -v aws >/dev/null 2>&1; then
+    error "AWS CLI is not installed."
+    exit 1
+fi
+
+if ! aws sts get-caller-identity >/dev/null 2>&1; then
+    error "AWS CLI is not configured."
+    exit 1
+fi
+
+header "AWS ACCOUNT SUMMARY"
 
 aws sts get-caller-identity
 
 echo ""
 echo "Configured AWS CLI:"
 aws configure list
+
+success "Account summary completed successfully."

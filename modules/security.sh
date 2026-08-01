@@ -1,10 +1,19 @@
 #!/bin/bash
 
-echo "========================================="
-echo "      SECURITY GROUP AUDIT REPORT"
-echo "========================================="
+source "$(dirname "$0")/utils.sh"
 
-echo ""
+if ! command -v aws >/dev/null 2>&1; then
+    error "AWS CLI is not installed."
+    exit 1
+fi
+
+if ! aws sts get-caller-identity >/dev/null 2>&1; then
+    error "AWS CLI is not configured."
+    exit 1
+fi
+
+header "SECURITY GROUP AUDIT"
+
 echo "Security Groups:"
 echo ""
 
@@ -19,3 +28,5 @@ echo ""
 aws ec2 describe-security-groups \
 --query "SecurityGroups[*].IpPermissions[*].[FromPort,ToPort,IpProtocol]" \
 --output table
+
+success "Security audit completed successfully."
