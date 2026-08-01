@@ -1,5 +1,9 @@
 # AWS Resource Monitor
-
+![AWS CLI](https://img.shields.io/badge/AWS-CLI-orange?logo=amazonaws)
+![Bash](https://img.shields.io/badge/Bash-Scripting-black?logo=gnu-bash)
+![Linux](https://img.shields.io/badge/Linux-Ubuntu-E95420?logo=ubuntu)
+![Git](https://img.shields.io/badge/Git-Version_Control-F05032?logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
 A modular Bash-based AWS resource monitoring and reporting toolkit built using AWS CLI, IAM, and Linux.
 
 ## Features

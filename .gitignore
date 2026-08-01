@@ -1,4 +1,9 @@
-reports/*
-logs/*
-*.log
-*.txt
+reports/*.txt
+logs/*.log
+
+*.swp
+*~
+
+.aws/
+
+*.tmp
