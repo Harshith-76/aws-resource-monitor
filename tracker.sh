@@ -12,7 +12,9 @@ do
     echo "2. EBS Monitor"
     echo "3. IAM Monitor"
     echo "4. Security Group Audit"
-    echo "5. Exit"
+    echo "5. AWS Account Summary"
+    echo "6. Generate Report"
+    echo "7. Exit"
     echo ""
 
     read -p "Select an option: " choice
@@ -31,8 +33,17 @@ do
             ./modules/security.sh
             ;;
         5)
+            ./modules/account.sh
+            ;;
+        6)
+            ./modules/report.sh
+            ;;
+
+        7)
             echo "Goodbye!"
             exit 0
+  
+          
             ;;
         *)
             echo "Invalid option!"
