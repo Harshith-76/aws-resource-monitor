@@ -13,8 +13,9 @@ do
     echo "3. IAM Monitor"
     echo "4. Security Group Audit"
     echo "5. AWS Account Summary"
-    echo "6. Generate Report"
-    echo "7. Exit"
+    echo "6. Linux System Status"  
+    echo "7. Generate Report"
+    echo "8. Exit"
     echo ""
 
     read -p "Select an option: " choice
@@ -36,10 +37,13 @@ do
             ./modules/account.sh
             ;;
         6)
+            ./modules/system.sh
+            ;;
+        7)
             ./modules/report.sh
             ;;
 
-        7)
+        8)
             echo "Goodbye!"
             exit 0
   
