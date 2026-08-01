@@ -13,7 +13,7 @@ if ! aws sts get-caller-identity >/dev/null 2>&1; then
 fi
 
 header "AWS ACCOUNT SUMMARY"
-
+log_action "Account Summary Executed"
 aws sts get-caller-identity
 
 echo ""

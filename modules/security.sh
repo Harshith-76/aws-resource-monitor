@@ -13,7 +13,7 @@ if ! aws sts get-caller-identity >/dev/null 2>&1; then
 fi
 
 header "SECURITY GROUP AUDIT"
-
+log_action "Security Group Audit Executed"
 echo "Security Groups:"
 echo ""
 

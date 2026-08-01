@@ -13,7 +13,7 @@ if ! aws sts get-caller-identity >/dev/null 2>&1; then
 fi
 
 header "EC2 INSTANCE REPORT"
-
+log_action "EC2 Monitor Executed"
 aws ec2 describe-instances \
 --query "Reservations[*].Instances[*].[InstanceId,InstanceType,State.Name,PublicIpAddress,LaunchTime]" \
 --output table

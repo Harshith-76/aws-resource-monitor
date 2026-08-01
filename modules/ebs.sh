@@ -13,7 +13,7 @@ if ! aws sts get-caller-identity >/dev/null 2>&1; then
 fi
 
 header "EBS VOLUME REPORT"
-
+log_action "EBS Monitor Executed"
 aws ec2 describe-volumes \
 --query "Volumes[*].[VolumeId,Size,State,AvailabilityZone,VolumeType]" \
 --output table

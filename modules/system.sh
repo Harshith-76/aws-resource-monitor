@@ -3,7 +3,7 @@
 source "$(dirname "$0")/utils.sh"
 
 header "LINUX SYSTEM STATUS"
-
+log_action "Linux System Monitor Executed"
 echo "Hostname:"
 hostname
 

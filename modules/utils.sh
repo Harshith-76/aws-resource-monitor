@@ -25,3 +25,8 @@ warning() {
 error() {
     echo -e "${RED}$1${NC}"
 }
+log_action() {
+    LOG_DIR="$(dirname "$0")/../logs"
+    mkdir -p "$LOG_DIR"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_DIR/monitor.log"
+}

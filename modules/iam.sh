@@ -13,7 +13,7 @@ if ! aws sts get-caller-identity >/dev/null 2>&1; then
 fi
 
 header "IAM USER REPORT"
-
+log_action "IAM Monitor Executed"
 aws iam list-users \
 --query "Users[*].[UserName,CreateDate,Arn]" \
 --output table
